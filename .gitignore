@@ -1,0 +1,10 @@
+# backups de texto
+*~
+*.swp
+
+# objetos
+*.o
+proj3
+
+# mais coisas
+cscope*
