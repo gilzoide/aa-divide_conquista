@@ -12,11 +12,14 @@
 
 objs = main.o grafico.o
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -g -O2 -march=native
+CXXFLAGS = -std=c++11 -Wall -g
 exe = proj3
 
 all : $(objs)
 	$(CXX) $(CXXFLAGS) $(objs) -o $(exe)
+
+debug_run :
+	@gdb ./$(exe)
 
 run :
 	@./$(exe)

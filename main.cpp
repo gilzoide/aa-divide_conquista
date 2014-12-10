@@ -10,7 +10,15 @@
  *
  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */
 #include <iostream>
+#include <vector>
 #include "grafico.hpp"
+
+void imprimeVec (vector<ponto> vec) {
+	for (auto & pt : vec) {
+		cout << pt.first << ' ' << pt.second << '\n';
+	}
+}
+
 
 int main () {
 	// número de testes
@@ -22,6 +30,8 @@ int main () {
 		Grafico G;
 		G.getInput ();
 		G.printPontos ();
+
+		G.getPareto ();
 	}
 
 	return 0;
