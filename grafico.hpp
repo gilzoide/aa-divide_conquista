@@ -29,8 +29,13 @@ private:
 	// tamanho usado
 	int num {0};
 	// O algoritimo em si, recursivo usando divisão e conquista
+	// só ordena pelo X
+	void div_conq_sort (int ini, int fim, ponto *retorno);
+
+	// O algoritimo em si, recursivo usando divisão e conquista
+	// esse acha o pareto
 	// @return O último ponto achado como pareto: índice, ponto
-	int div_conq (int ini, int fim, ponto *retorno);
+	int div_conq_pareto (int ini, int fim);
 	
 public:
 	// Pega o input, na formatação esperada

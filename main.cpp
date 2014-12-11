@@ -22,9 +22,6 @@ int main () {
 		Grafico G;
 		G.getInput ();
 
-		G.printPontos ();
-		cout << '\n';
-
 		G.getPareto ();
 		cout << '\n';
 	}
