@@ -40,32 +40,31 @@ void swap (ponto *A, ponto *B) {
 }
 
 
-void Grafico::div_conq (int ini, int fim, ponto *retorno) {
-	cout << "indo de " << ini << " até " << fim << '\n';
-
+void Grafico::div_conq (int ini, int fim, ponto *aux) {
+	// Caso base: vetor unitário
 	if (ini >= fim) return;
 
 	// Divide!
 	int meio = ini + ((fim - ini) / 2);
-	div_conq (ini, meio, retorno);
-	div_conq (meio + 1, fim, retorno);
+	div_conq (ini, meio, aux);
+	div_conq (meio + 1, fim, aux);
 
 	// Conquista!
-	int i = ini, k = 0, j = meio + 1;
+	int i = ini, k = 0, j = meio;
 	while (k < fim - ini) {
 		if (j >= fim || (i < meio && pontos[i].first < pontos[j].first)) {
-			retorno[k] = pontos[j];
+			aux[k] = pontos[i];
 			i++;
 		}
 		else {
-			retorno[k] = pontos[j];
+			aux[k] = pontos[j];
 			j++;
 		}
 		k++;
 	}
 
 	for (i = ini, k = 0; i < fim; i++, k++) {
-		pontos[i] = retorno[k];
+		pontos[i] = aux[k];
 	}
 }
 
