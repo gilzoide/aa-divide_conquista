@@ -33,6 +33,10 @@ int main () {
 		cout << '\n';
 
 		G.getPareto ();
+
+		G.printPontos ();
+		cout << '\n';
+		G.printPareto ();
 	}
 
 	return 0;
