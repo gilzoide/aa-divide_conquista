@@ -51,9 +51,9 @@ void Grafico::div_conq (int ini, int fim, ponto *retorno) {
 	div_conq (meio + 1, fim, retorno);
 
 	// Conquista!
-	int i = ini, k = ini, j = meio + 1;
-	while (k < fim) {
-		if (i < meio && pontos[i].first < pontos[j].first) {
+	int i = ini, k = 0, j = meio + 1;
+	while (k < fim - ini) {
+		if (j >= fim || (i < meio && pontos[i].first < pontos[j].first)) {
 			retorno[k] = pontos[j];
 			i++;
 		}
@@ -62,6 +62,10 @@ void Grafico::div_conq (int ini, int fim, ponto *retorno) {
 			j++;
 		}
 		k++;
+	}
+
+	for (i = ini, k = 0; i < fim; i++, k++) {
+		pontos[i] = retorno[k];
 	}
 }
 
