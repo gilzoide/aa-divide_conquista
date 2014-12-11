@@ -28,6 +28,11 @@ void Grafico::getPareto () {
 	ponto aux[MAX];
 
 	div_conq (0, num, aux);
+
+	printPontos ();
+	cout << '\n';
+
+	printPareto ();
 }
 
 
@@ -39,8 +44,9 @@ void swap (ponto *A, ponto *B) {
 
 
 int Grafico::div_conq (int ini, int fim, ponto *aux) {
+	cout << "div_conq de " << ini << " até " << fim << endl;
 	// Caso base: vetor unitário
-	if (ini >= fim) {
+	if (ini >= fim - 1) {
 		pareto[ini] = true;
 		return ini;
 	}
@@ -48,7 +54,7 @@ int Grafico::div_conq (int ini, int fim, ponto *aux) {
 	// Divide!
 	int meio = (fim + ini) / 2;
 	auto indice_ultimo = div_conq (ini, meio, aux);	// metade esquerda
-	div_conq (meio + 1, fim, aux);				// metade direita
+	div_conq (meio, fim, aux);				// metade direita
 
 	//    Conquista!
 	// ordena o vetor pelos X
@@ -76,7 +82,7 @@ int Grafico::div_conq (int ini, int fim, ponto *aux) {
 	//cout << '\t' << indice_ultimo << " e " << meio << '\n';
 
 	for (j = meio; j < fim; j++) {
-		//cout << "\tcompara " << indice_ultimo << " com " << j << '\n';
+		cout << "\tcompara " << indice_ultimo << " com " << j << '\n';
 		// mesmo índice, vai pro próximo
 		if (j == indice_ultimo) {
 			continue;

@@ -14,7 +14,6 @@
 
 #include <iostream>
 #include <cstdio>
-#include <vector>
 
 #define MAX 10000
 
@@ -36,7 +35,7 @@ private:
 public:
 	// Pega o input, na formatação esperada
 	void getInput ();
-	// Roda o algoritimo e pega o pareto
+	// Roda o algoritimo e já escreve o pareto
 	void getPareto ();
 	// Imprime todos os pontos coletados
 	void printPontos ();
